@@ -175,7 +175,7 @@ $sizing: (
 // min: $font-size, baseline: $baseline
 @include set($Line-height, line-height, (
   defl, $line-height,
-  logo, snap-len(104px, px),
+  logo, snap-len(122px, px),
   //logo, snap-len(68px, px),
 ));
 
