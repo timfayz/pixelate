@@ -1,0 +1,132 @@
+@function time-to-perc($from, $duration, $total) {
+  $v: $duration/$total*100%;
+  @return $v+$from;
+}
+
+// Red LED
+$_LEDs-total: 12s;
+@keyframes _red-LED {
+  // pause
+  $p: time-to-perc(0, 2s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink
+  $p: time-to-perc($p, .03s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .03s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // end
+}
+._red-LED {
+  animation: _red-LED ease-in;
+  animation-duration: $_LEDs-total;
+  animation-iteration-count: infinite;
+}
+
+// Green LED
+@keyframes _grn-LED {
+  // pause
+  $p: time-to-perc(0, 4s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // a little pause
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  
+  // end
+}
+._grn-LED {
+  animation: _grn-LED ease-in;
+  animation-duration: $_LEDs-total;
+  animation-iteration-count: infinite;
+}
+
+// Green LED
+@keyframes _yel-LED {
+  // pause
+  $p: time-to-perc(0, 6s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+
+  // blink 1
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 2
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 3
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 4
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 5
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 6
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 7
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 8
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink 9
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .05s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // end
+}
+._yel-LED {
+  animation: _yel-LED ease-in;
+  animation-duration: $_LEDs-total;
+  animation-iteration-count: infinite;
+}
+
+// Blue LED
+@keyframes _blu-LED {
+  // pause
+  $p: time-to-perc(0, 6.95s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+  // blink
+  $p: time-to-perc($p, .01s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, 1.4s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .01s, $_LEDs-total);
+  #{$p} {opacity: 0;}
+  $p: time-to-perc($p, .01s, $_LEDs-total);
+  #{$p} {opacity: 1;}
+
+  // end
+}
+._blu-LED {
+  animation: _blu-LED ease-in;
+  animation-duration: $_LEDs-total;
+  animation-iteration-count: infinite;
+}

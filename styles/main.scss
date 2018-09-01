@@ -1,0 +1,352 @@
+/*!
+ * Name: Pixl website
+ * Version: 1.0
+ * Authors: Timur Fayzrakhmanov <tim.fayzrakhmanov@gmail.com>
+ * Powered by: elementcss, init.css
+ */
+@import 'elementcss/import.scss';
+@import 'palette.scss';
+@import 'fonts.scss';
+
+// ==================================================
+// Globals
+// ==================================================
+// Fonts
+// Recommended content fonts 
+// Munro! (18px), Share Tech Mono!, Google Sans, PT Mono, Gohufont, Volter!, Inconsolata!
+$font-title: 'Volter', monospace;
+$font-content: 'Share Tech Mono', monospace;
+
+// Metrics
+$baseline: 4px;
+$font-size: snap-len(24px, px, $baseline);
+$line-height: snap-len(28px, '', $baseline, $ref:$font-size, $round:true);
+//@debug GLOBALS $font-size, $line-height;
+
+// Store defaults for shorter use
+$snap-len-base: $baseline;
+$adopt-len-base: $baseline;
+$adopt-len-ref: $line-height; // snapped ref for font-size adoption
+$convert-len-ref: $font-size; // ref for relative lengths
+$snap-len-ref: convert-len($line-height, px); // snapped ref for rem
+
+// Ruler
+._ruler::after {
+  @include ruler($baseline, rgba(0,0,0,0.05), $z-index:-1);
+  //top: 0px;
+  //visibility: hidden;
+}
+
+
+// ===================================================
+// Layout
+// ===================================================
+// Sizing for hight/width/trbl/padding/margin
+$sizing: (
+  base, $baseline,  
+  '025',  snap-len(0.25,px),
+  '05',   snap-len(0.5,px),
+  '075',  snap-len(0.7,px), //!
+  1,    snap-len(1,px), 
+  2,    snap-len(2,px),
+  4,    snap-len(4,px),
+  6,    snap-len(6,px),
+  8,    snap-len(8,px),
+  16,   snap-len(16,px),
+  24,   snap-len(24,px),
+  32,   snap-len(32,px),
+);
+
+// Height
+@include set($Height, height, join((
+), $sizing));
+
+// Width
+@include set($Width, width, join((
+  //logo, snap-len(12,rem),
+), $sizing));
+
+// Top, Right, Bottom, Left
+@include set($Top, top, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Right, right, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Bottom, bottom, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Left, left, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+
+// Margin
+@include set($Margin, margin, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Margin-top, margin-top, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Margin-right, margin-right, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Margin-bottom, margin-bottom, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Margin-left, margin-left, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+
+// Padding
+@include set($Padding, padding, join((
+), $sizing));
+@include set($Padding-top, padding-top, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Padding-right, padding-right, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Padding-bottom, padding-bottom, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+@include set($Padding-left, padding-left, join((
+  0, 0,
+  auto, auto,
+), $sizing));
+
+// Box-sizing
+@include set($Box-sizing, box-sizing, (
+  box, border-box,
+));
+
+// Display
+@include set($Display, display, (
+  none, none,
+  bloc, block,
+  inbl, inline-block,
+  inln, inline,
+));
+
+// Position
+@include set($Position, position, (
+  absl, absolute,
+  relt, relative,
+));
+
+// Overflow
+@include set($Overflow, overflow, (
+  hidd, hidden,
+));
+@include set($Overflow-x, overflow-x, (
+  hidd, hidden,
+));
+
+
+// ==================================================
+// Typography
+// ==================================================
+// Font-size
+// 400 - normal, 700 - bold
+// font sizes adopted to root line-height
+@include set($Font-size, font-size, (
+  defl, $font-size,
+  logo, adopt-len(4 * $font-size),
+
+  xsm,  adopt-len(0.5 * $font-size),
+  sm,   adopt-len(0.75 * $font-size),
+  md,   adopt-len(1.5 * $font-size),
+  lg,   adopt-len(2 * $font-size),
+  xlg,  adopt-len(3 * $font-size),
+));
+
+// Line-height
+// min: $font-size, baseline: $baseline
+@include set($Line-height, line-height, (
+  defl, $line-height,
+  logo, snap-len(104px, px),
+  //logo, snap-len(68px, px),
+));
+
+// Font-Family
+@include set($Font-family, font-family, (
+  titl, $font-title,
+  cont, $font-content,
+));
+
+// Font-Weight
+@include set($Font-weight, font-weight, (
+  norm, normal,
+  bold, bolder,
+  ligh, lighter,
+));
+
+// Font-Style
+@include set($Font-style, font-style, (
+  ital, italic,
+  norm, normal,
+));
+
+// Text-Decoration
+@include set($Text-decoration, text-decoration, (
+  undr, underline,
+  thrg, line-through
+));
+
+// Text-Transform
+@include set($Text-transform, text-transform, (
+  uppr, uppercase,
+  lowr, lowercase,
+  capt, capitalize
+));
+
+// Text-Align
+@include set($Text-align, text-align, (
+  left, left,
+  righ, right,
+  cent, center,
+  just, justify,
+));
+
+
+// ===================================================
+// Styling
+// ===================================================
+// Palette
+$colors: (
+  grn70, m($c, green700),  
+  grn60, m($c, green600),
+  grn50, m($c, green500),
+  grn40, m($c, green400),
+  grn30, m($c, green300),
+  
+  blu70, m($c, blue700),
+  blu60, m($c, blue600),
+  blu50, m($c, blue500),
+  blu40, m($c, blue400),
+  blu30, m($c, blue300),
+
+  red70, m($c, red700),
+  red60, m($c, red600),
+  red50, m($c, red500),
+  red40, m($c, red400),
+  red30, m($c, red300),
+
+  yel70, m($c, yellow700),
+  yel60, m($c, yellow600),
+  yel50, m($c, yellow500),
+  yel40, m($c, yellow400),
+  yel30, m($c, yellow300),
+  
+  gre90, m($c, grey900),
+  gre80, m($c, grey800),
+  gre70, m($c, grey700),
+  gre60, m($c, grey600),
+  gre50, m($c, grey500),
+  gre40, m($c, grey400),
+  gre30, m($c, grey300),
+
+  blk, m($c, black),
+  wht, m($c, white),
+);
+// Color
+// ------------------------
+@include set($Color, color, join((), $colors));
+
+// Backgrond
+// ------------------------
+@include set($Background-color, background-color, join((), $colors));
+
+// Borders
+// ------------------------
+// Border-width
+@include set($Border-width, border-width, (
+  defl, 2px,
+));
+// Border-style
+@include set($Border-style, border-style, (
+  sold, solid,
+  dash, dashed,
+));
+// Border-collapse
+@include set($Border-collapse, border-collapse, (
+  sepr, separate,
+));
+// Border-color
+@include set($Border-color, border-color, join((), $colors));
+
+// ===================================================
+// Custom
+// ===================================================
+// Pixilate top-left/bttm-right corners
+._pxl-effc::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: black;
+  width: 8px;
+  height: 8px;
+}
+._pxl-effc::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: black;
+  width: 8px;
+  height: 8px;
+}
+
+// THREE.js
+#scene {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+canvas {
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+$media: em (
+  mobile:     '@media screen and (max-width: 740px)',
+  tablet:     '@media screen and (max-width: 1024px)',
+  laptop:     '@media screen and (min-width: 1366px)',
+);
+
+// ===================================================
+// Animation
+// ===================================================
+@import 'animation.scss';
+
+// ===================================================
+// Naming convetions
+// ===================================================
+// Color names:
+// * 3 first letters
+// * 2 shade code
+// * if duplicates take next consonant
+//
+// Sets' values:
+// * 4 first letters
+// * if duplicates take next consonant
+// * if last letter is vowel take next consonant
+// 
+// Var names
+// * global: no shortcuts
+// * local: 3 first consonants
