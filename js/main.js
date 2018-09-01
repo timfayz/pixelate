@@ -98,7 +98,7 @@ var material =
 var cube = new THREE.Mesh(geometry, material);
 cube.rotation.x = 0.3;
 cube.position.z = 1;
-cube.scale.set( 1.15, 1.15, 1.15 );
+cube.scale.set( 1.2, 1.2, 1.2 );
 
 // Attach
 scene.add(cube);
@@ -109,7 +109,7 @@ function update() {
     // Draw
     renderer.render(scene, camera);
 
-    cube.rotation.y += 0.002;
+    cube.rotation.y += 0.001;
 
     // Schedule the next frame
     requestAnimationFrame(update);

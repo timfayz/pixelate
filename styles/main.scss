@@ -14,12 +14,12 @@
 // Fonts
 // Recommended content fonts 
 // Munro! (18px), Share Tech Mono!, Google Sans, PT Mono, Gohufont, Volter!, Inconsolata!
-$font-title: 'Volter', monospace;
+$font-title: 'Munro', monospace;
 $font-content: 'Share Tech Mono', monospace;
 
 // Metrics
 $baseline: 4px;
-$font-size: snap-len(24px, px, $baseline);
+$font-size: snap-len(20px, px, $baseline);
 $line-height: snap-len(28px, '', $baseline, $ref:$font-size, $round:true);
 //@debug GLOBALS $font-size, $line-height;
 
@@ -53,7 +53,9 @@ $sizing: (
   6,    snap-len(6,px),
   8,    snap-len(8,px),
   16,   snap-len(16,px),
+  20,   snap-len(16,px),
   24,   snap-len(24,px),
+  28,   snap-len(16,px),
   32,   snap-len(32,px),
 );
 
@@ -175,7 +177,7 @@ $sizing: (
 // min: $font-size, baseline: $baseline
 @include set($Line-height, line-height, (
   defl, $line-height,
-  logo, snap-len(122px, px),
+  logo, snap-len(96px, px),
   //logo, snap-len(68px, px),
 ));
 
